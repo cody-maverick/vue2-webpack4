@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <TodoListItem v-for="(item, i) in listItems" :key="i" :TodoListItemName="item">{{item}}</TodoListItem>
-  </div>
+  <ul class="todo-list">
+    <TodoListItem
+      v-for="(item, i) in listItems"
+      :key="i"
+      :TodoListItem="item"
+      :DoneUndoneX="DoneUndone">
+      {{item}}
+    </TodoListItem>
+  </ul>
 </template>
+
+<style lang="scss" src="./list.scss"></style>
 
 <script>
     import TodoListItem from '../todo-list-item/list-item.vue';
@@ -11,11 +19,13 @@
         name: 'TodoList',
         props: {
             TodoListItems: Array,
-            a: String,
+            DoneUndone: Function,
+            DeleteItem: Function
         },
         data() {
             return {
-                listItems: this.TodoListItems
+                listItems: this.TodoListItems,
+                DoneUndone: this.DoneUndone
             }
 
         },

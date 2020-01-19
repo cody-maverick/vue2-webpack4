@@ -1,0 +1,16 @@
+.todo-list__item {
+  list-style-type: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding: 10px;
+
+  &--cross {
+    text-decoration: line-through;
+
+    button {
+      text-decoration: none;
+    }
+  }
+}
